@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Node Chatbot</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="wrap">
+      <h1>Node Chatbot</h1>
+
+      <!-- ✅ NEW: סרגל צ'אטים -->
+      <div class="topbar">
+        <button id="newChatBtn" type="button">צ'אט חדש</button>
+        <button id="deleteChatBtn" type="button">מחק צ'אט</button>
+        <select id="chatSelect"></select>
+      </div>
+
+      <div id="chat" class="chat"></div>
+
+      <form id="form" class="bar">
+        <input id="input" placeholder="כתוב הודעה..." autocomplete="off" />
+        <button id="send" type="submit">שלח</button>
+      </form>
+
+      <div class="hint">טיפ: ניתן ליצור כמה צ'אטים ולעבור ביניהם.</div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
