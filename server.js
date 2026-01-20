@@ -55,30 +55,16 @@ function trimHistory(messages) {
 app.delete("/api/chat/:chatId", (req, res) => {
   const { chatId } = req.params;
 
-  // Log incoming request (remove in production or use proper logger)
-  console.log(`DELETE /api/chat/${chatId} requested`);
-
-  if (!chatId || chatId.trim() === "") {
-    console.warn("Missing or empty chatId");
+  if (!chatId) {
     return res.status(400).json({ error: "chatId is required" });
   }
 
-  // Optional: normalize chatId if you use numbers/strings inconsistently
-  // const normalizedId = String(chatId).trim();
-
   if (!chats.has(chatId)) {
-    console.warn(`Chat not found: ${chatId}`);
     return res.status(404).json({ error: "Chat not found" });
   }
 
-  try {
-    chats.delete(chatId);
-    console.log(`Chat deleted successfully: ${chatId}`);
-    return res.status(200).json({ ok: true, deletedChatId: chatId });
-  } catch (err) {
-    console.error(`Error deleting chat ${chatId}:`, err);
-    return res.status(500).json({ error: "Failed to delete chat" });
-  }
+  chats.delete(chatId);
+  res.json({ ok: true });
 });
 
 // (לא חובה, אבל נחמד) לראות אילו צ'אטים קיימים בזיכרון השרת
