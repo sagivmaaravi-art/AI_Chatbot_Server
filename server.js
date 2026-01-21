@@ -96,7 +96,7 @@ app.post("/api/chat", async (req, res) => {
 
     // ✅ NEW: קריאה עם messages (היסטוריה) כדי לקבל שיחה מתמשכת
     const completion = await client.chat.completions.create({
-      model: "gpt-4o-mini",
+      model: "gpt-4o",
       messages: chats.get(chatId),
     });
 
