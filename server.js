@@ -116,6 +116,10 @@ app.post("/api/chat", async (req, res) => {
   }
 });
 
+app.get("/", (req, res) => {
+  res.send("Server is alive 🚀");
+});
+
 // מאזין על פורט
 const port = process.env.PORT || 3000;
 app.listen(port, "0.0.0.0", () => {
